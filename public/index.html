@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Bundesliga Info</title>
+  <meta name="description" content="Information Budesliga FootBall"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#6495ED"/>
+  <link rel="apple-touch-icon" href="/icon.png">
+  <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+      #body-content {
+        flex: 1 0 auto;
+      }
+      .preloader-wrapper{
+        margin: 50% auto;
+      }
+  </style>
+</head>
+<body>
+  <!-- Navigasi -->
+  <nav class="blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo" id="logo-container">Bundesliga</a>
+      <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+      
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul class="sidenav" id="nav-mobile"></ul>
+    </div>
+  </nav>
+  <!-- Akhir Navigasi -->
+
+  <div class="preloader-wrapper big active" id="preload">
+    <div class="spinner-layer spinner-red-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="body-content"></div>
+  <footer class="page-footer blue lighten-1 center">
+    <div class="footer-copyright">
+      <div class="container">
+        Agy Nugroho &copy; 2020
+      </div>
+    </div>
+  </footer>  
+  <script src="js/materialize.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/idb.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/regsw.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var page = window.location.hash.substr(1);
+        document.getElementById('body-content').style.display = 'none';
+        setTimeout(function() {
+          document.getElementById('preload').style.display = 'none';
+          document.getElementById('body-content').style.display = 'block';
+        },2800);
+      });
+  </script>
+</body>
+</html>

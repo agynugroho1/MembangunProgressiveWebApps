@@ -1,0 +1,14 @@
+{
+  "name": "submission2",
+  "version": "1.0.0",
+  "description": "Aplikasi untuk menginfokan laga laga tim bundesliga yang akan berlaga",
+  "main": "service-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Agy Nugroho",
+  "license": "ISC",
+  "dependencies": {
+    "web-push": "^3.4.4"
+  }
+}
