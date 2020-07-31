@@ -21,7 +21,7 @@
     var payload = 'Jadwal tim Bundesliga akan bermain besok! Lihat Jadwalnya! Jangan lupa dukung tim kesayangan Bundesliga kesayangan kalian ya!!!';
      
     var options = {
-       gcmAPIKey: '951543307485',
+       gcmAPIKey: '810567285097',
        TTL: 60
     };
     webPush.sendNotification(

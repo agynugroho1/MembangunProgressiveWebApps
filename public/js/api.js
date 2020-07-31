@@ -244,7 +244,7 @@ function getNextEvent() {
 		const idParam = urlParams.get("id");
 
 			if ("caches" in window) {
-		    caches.match(baseUrl + "/api/v1/json/1/eventsnext.php?id=" + idParam).then(function(response) {
+		    caches.match(baseUrl + "api/v1/json/1/eventsnext.php?id=" + idParam).then(function(response) {
 		      if (response) {
 		        response.json().then(function(data) {
 		          let eventHTML = "";
