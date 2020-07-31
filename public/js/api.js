@@ -23,22 +23,39 @@ function getTeams() {
       if (response) {
         response.json().then(function(data) {
           let teamsHTML = "";
-		data.teams.forEach(function(team) {
-			teamsHTML += `
-				<div class="card">
-					<a href="./tdetil.html?id=${team.idTeam}">
-						<div class="card-image waves-effect waves-block waves-light">
-							<img src="${team.strTeamBadge}" alt="Badge Club"/>
+			data.teams.forEach(function(team) {
+				teamsHTML += `
+					<div class="card">
+						<a href="./tdetil.html?id=${team.idTeam}">
+							<div class="card-image waves-effect waves-block waves-light">
+								<img src="${team.strTeamBadge}" alt="Badge Club"/>
+							</div>
+						</a>
+						<div class="card-content">
+							<span class="card-title" style="font-weight: bold;">${team.strTeam}</span>
+							<p>${team.strDescriptionEN}</p>
 						</div>
-					</a>
-					<div class="card-content">
-						<span class="card-title" style="font-weight: bold;">${team.strTeam}</span>
-						<p>${team.strDescriptionEN}</p>
 					</div>
-				</div>
-			`;
-		});
-		document.getElementById("team").innerHTML = teamsHTML;
+				`;
+
+					if ("caches" in window) {
+				    caches.match(baseUrl + `api/v1/json/1/eventsnext.php?id=${team.idTeam}` ).then(function(response) {
+				      if (response) {
+				        response.json().then(function(data) {
+				        	console.log("Data diambil!")
+				        });
+				      }
+				    });
+				  }
+
+					fetch(baseUrl + `api/v1/json/1/eventsnext.php?id=${team.idTeam}`)
+					.then(status)
+					.then(json)
+					.then(function(data) {
+						console.log("data dimuat!")
+					});
+			});
+			document.getElementById("team").innerHTML = teamsHTML;
         });
       }
     });
@@ -63,6 +80,23 @@ function getTeams() {
 					</div>
 				</div>
 			`;
+			
+			if ("caches" in window) {
+				    caches.match(baseUrl + `api/v1/json/1/eventsnext.php?id=${team.idTeam}` ).then(function(response) {
+				      if (response) {
+				        response.json().then(function(data) {
+				        	console.log("Data diambil!")
+				        });
+				      }
+				    });
+				  }
+
+					fetch(baseUrl + `api/v1/json/1/eventsnext.php?id=${team.idTeam}`)
+					.then(status)
+					.then(json)
+					.then(function(data) {
+						console.log("data dimuat!")
+					});
 		});
 		document.getElementById("team").innerHTML = teamsHTML;
 	})
